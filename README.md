@@ -7,7 +7,7 @@
 
 ## 🌐 Live Application
 
-🔗 https://your-vercel-app.vercel.app  
+🔗 https://sportchain-umber.vercel.app/
 
 
 ---
@@ -134,7 +134,7 @@ IPFS (Pinata)
 ## 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/sportchain.git
+git clone https://github.com/AkashB45/sportchain.git
 cd sportchain
 ```
 
