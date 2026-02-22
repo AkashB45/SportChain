@@ -13,10 +13,14 @@ const cookieParser = require("cookie-parser");
 const attendanceRoutes = require("./routes/attendance.routes");
 app.use(
   cors({
-    origin: `${process.env.FRONTEND_URL}`,
+    origin: [
+      "http://localhost:3000",
+      "https://sportchain-umber.vercel.app",
+    ],
     credentials: true,
   })
 );
+app.options("*", cors());
 app.use(express.json());
 app.use(clerkMiddleware());
 app.use(cookieParser());
