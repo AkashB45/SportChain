@@ -32,29 +32,29 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 px-6 py-16">
-      <div className="max-w-5xl mx-auto space-y-16">
+    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black text-white px-6 py-20">
+      <div className="max-w-6xl mx-auto space-y-16">
 
-        {/* HEADER */}
-        <div className="text-center">
-          <h1 className="text-5xl font-extrabold text-gray-900 mb-4">
+        {/* HERO */}
+        <div className="text-center space-y-4">
+          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
             Get in Touch
           </h1>
-          <p className="text-gray-600 text-lg">
-            Have questions, feedback, or collaboration ideas? I’d love to hear from you.
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Have questions, collaboration ideas, or feedback? Let’s build something impactful together.
           </p>
         </div>
 
-        {/* CONTACT CARD */}
-        <div className="bg-white rounded-3xl shadow-xl p-10 grid md:grid-cols-2 gap-12">
+        {/* CONTACT CONTAINER */}
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-2xl p-8 md:p-12 grid md:grid-cols-2 gap-12">
 
-          {/* LEFT — CONTACT FORM */}
+          {/* LEFT — FORM */}
           <div>
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+            <h2 className="text-2xl font-bold mb-6 text-purple-300">
               Send a Message
             </h2>
 
-            <form className="space-y-5" onSubmit={handleSubmit}>
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <input
                 type="text"
                 name="name"
@@ -62,7 +62,7 @@ export default function ContactPage() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
+                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
               />
 
               <input
@@ -72,7 +72,7 @@ export default function ContactPage() {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
+                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
               />
 
               <textarea
@@ -82,79 +82,93 @@ export default function ContactPage() {
                 rows={5}
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-4 border rounded-xl focus:ring-2 focus:ring-indigo-400 outline-none"
+                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
               />
 
               <button
                 type="submit"
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition"
+                className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-purple-500/40"
               >
-                Send Message via Gmail
+                Send Message via Gmail 🚀
               </button>
             </form>
           </div>
 
-          {/* RIGHT — ABOUT YOU */}
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-600 text-white rounded-2xl p-8 shadow-lg">
-            <h2 className="text-2xl font-bold mb-4">About the Developer</h2>
+          {/* RIGHT — DEVELOPER CARD */}
+          <div className="relative bg-gradient-to-br from-purple-700/40 to-blue-700/40 border border-white/10 rounded-2xl p-8 shadow-xl backdrop-blur-xl">
 
-            <p className="text-sm leading-relaxed mb-4">
-              Hi, I’m <span className="font-semibold">Akash Balaji</span>, a
-              <span className="font-semibold"> Full-Stack Developer</span> with
-              hands-on experience in building scalable web applications using
-              <span className="font-semibold"> MERN Stack</span>, cloud technologies,
-              and modern UI frameworks.
-            </p>
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl blur-2xl opacity-40"></div>
 
-            <p className="text-sm leading-relaxed mb-4">
-              I’ve worked on real-world projects like
-              <span className="font-semibold"> Real Estate Management Systems</span>,
-              <span className="font-semibold"> AI-powered Chatbots</span>, and secure
-              admin dashboards, focusing on performance and clean architecture.
-            </p>
+            <div className="relative z-10">
+              <h2 className="text-2xl font-bold mb-4 text-blue-300">
+                About the Developer
+              </h2>
 
-            <p className="text-sm leading-relaxed">
-              I’m actively exploring opportunities in
-              <span className="font-semibold"> Software Development</span>,
-              <span className="font-semibold"> Cloud</span>, and
-              <span className="font-semibold"> DevOps</span>.
-            </p>
-
-            <div className="mt-6 text-sm space-y-2">
-              <p>
-                📧 Email:{" "}
-                <a
-                  href="mailto:akashbalaji594@gmail.com"
-                  className="font-medium underline hover:text-gray-200"
-                >
-                  akashbalaji594@gmail.com
-                </a>
+              <p className="text-sm leading-relaxed text-gray-300 mb-4">
+                Hi, I’m <span className="font-semibold text-white">Akash Balaji</span>,
+                a <span className="font-semibold text-white">Full-Stack Developer</span>
+                specializing in scalable web apps using
+                <span className="font-semibold text-white"> MERN Stack</span>,
+                cloud technologies, and modern UI systems.
               </p>
 
-              <p>
-                💼 LinkedIn:{" "}
-                <a
-                  href="https://www.linkedin.com/in/akash-b-a92b30230/"
-                  target="_blank"
-                  className="font-medium underline hover:text-gray-200"
-                >
-                  linkedin.com/in/akash-balaji
-                </a>
+              <p className="text-sm leading-relaxed text-gray-300 mb-4">
+                I’ve built production-level systems including
+                Real Estate Platforms, AI-powered Chatbots,
+                Blockchain-integrated dashboards, and secure admin panels.
               </p>
 
-              <p>
-                🌐 Portfolio:{" "}
-                <a
-                  href="https://akashbalaji.vercel.app/"
-                  target="_blank"
-                  className="font-medium underline hover:text-gray-200"
-                >
-                  akashbalaji.vercel.app
-                </a>
+              <p className="text-sm leading-relaxed text-gray-300">
+                Currently exploring opportunities in
+                <span className="font-semibold text-white"> Software Engineering</span>,
+                <span className="font-semibold text-white"> Cloud</span>, and
+                <span className="font-semibold text-white"> DevOps</span>.
               </p>
+
+              {/* CONTACT LINKS */}
+              <div className="mt-8 space-y-3 text-sm">
+                <p>
+                  📧 Email:{" "}
+                  <a
+                    href="mailto:akashbalaji594@gmail.com"
+                    className="underline hover:text-purple-300 transition"
+                  >
+                    akashbalaji594@gmail.com
+                  </a>
+                </p>
+
+                <p>
+                  💼 LinkedIn:{" "}
+                  <a
+                    href="https://www.linkedin.com/in/akash-b-a92b30230/"
+                    target="_blank"
+                    className="underline hover:text-purple-300 transition"
+                  >
+                    linkedin.com/in/akash-balaji
+                  </a>
+                </p>
+
+                <p>
+                  🌐 Portfolio:{" "}
+                  <a
+                    href="https://akashbalaji.vercel.app/"
+                    target="_blank"
+                    className="underline hover:text-purple-300 transition"
+                  >
+                    akashbalaji.vercel.app
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
+
         </div>
+
+        {/* FOOTER NOTE */}
+        <div className="text-center text-gray-500 text-sm">
+          © {new Date().getFullYear()} SportChain • Built with Next.js & Blockchain Innovation
+        </div>
+
       </div>
     </div>
   );

@@ -58,7 +58,7 @@ export default function HelpPage() {
         </div>
 
         <div className="mt-20 text-center text-gray-400">
-          Need more help? Contact support@sportchain.com
+          Need more help? Contact akashbalaji594@gmail.com
         </div>
       </div>
     </div>
