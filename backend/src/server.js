@@ -14,3 +14,4 @@ module.exports = async (req, res) => {
   await connectDB();   // 🔥 ENSURE DB CONNECTED FIRST
   return app(req, res);
 };
+
