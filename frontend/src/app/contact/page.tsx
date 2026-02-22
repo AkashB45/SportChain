@@ -12,8 +12,7 @@ export default function ContactPage() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -32,29 +31,37 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-black via-purple-950 to-black text-white px-6 py-20">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <div className="min-h-screen bg-gradient-to-br from-black via-blue-950 to-black text-white px-6 py-20">
+      <div className="max-w-5xl mx-auto grid md:grid-cols-4 gap-10">
 
-        {/* HERO */}
-        <div className="text-center space-y-4">
-          <h1 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            Get in Touch
-          </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Have questions, collaboration ideas, or feedback? Let’s build something impactful together.
-          </p>
+        {/* SIDEBAR (Same Style as Privacy) */}
+        <div className="md:col-span-1 sticky top-20 h-fit space-y-4 text-sm">
+          <a href="#form" className="block hover:text-blue-400">
+            Send Message
+          </a>
+          <a href="#info" className="block hover:text-blue-400">
+            Contact Info
+          </a>
+          <a href="#about" className="block hover:text-blue-400">
+            About Developer
+          </a>
         </div>
 
-        {/* CONTACT CONTAINER */}
-        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl shadow-2xl p-8 md:p-12 grid md:grid-cols-2 gap-12">
+        {/* MAIN CONTENT (Same structure as Privacy content) */}
+        <div className="md:col-span-3 space-y-12">
 
-          {/* LEFT — FORM */}
-          <div>
-            <h2 className="text-2xl font-bold mb-6 text-purple-300">
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+            Contact Us
+          </h1>
+
+          {/* FORM SECTION */}
+          <section id="form">
+            <h2 className="text-2xl font-semibold mb-6">
               Send a Message
             </h2>
 
             <form className="space-y-6" onSubmit={handleSubmit}>
+
               <input
                 type="text"
                 name="name"
@@ -62,7 +69,7 @@ export default function ContactPage() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
+                className="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none placeholder-gray-400"
               />
 
               <input
@@ -72,103 +79,62 @@ export default function ContactPage() {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
+                className="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none placeholder-gray-400"
               />
 
               <textarea
                 name="message"
                 required
-                placeholder="Your Message"
                 rows={5}
+                placeholder="Your Message"
                 value={formData.message}
                 onChange={handleChange}
-                className="w-full p-4 bg-white/10 border border-white/20 rounded-xl focus:ring-2 focus:ring-purple-500 outline-none placeholder-gray-400 transition"
+                className="w-full p-4 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none placeholder-gray-400"
               />
 
               <button
                 type="submit"
-                className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 hover:scale-[1.02] transition-all duration-300 shadow-lg hover:shadow-purple-500/40"
+                className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-blue-600 to-purple-600 hover:opacity-90 transition"
               >
-                Send Message via Gmail 🚀
+                Send Message via Gmail
               </button>
             </form>
-          </div>
+          </section>
 
-          {/* RIGHT — DEVELOPER CARD */}
-          <div className="relative bg-gradient-to-br from-purple-700/40 to-blue-700/40 border border-white/10 rounded-2xl p-8 shadow-xl backdrop-blur-xl">
+          {/* CONTACT INFO */}
+          <section id="info">
+            <h2 className="text-2xl font-semibold mb-3">
+              Contact Information
+            </h2>
 
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-2xl blur-2xl opacity-40"></div>
+            <p className="text-gray-300 mb-2">
+              📧 akashbalaji594@gmail.com
+            </p>
 
-            <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-4 text-blue-300">
-                About the Developer
-              </h2>
+            <p className="text-gray-300">
+              💼 linkedin.com/in/akash-balaji
+            </p>
+          </section>
 
-              <p className="text-sm leading-relaxed text-gray-300 mb-4">
-                Hi, I’m <span className="font-semibold text-white">Akash Balaji</span>,
-                a <span className="font-semibold text-white">Full-Stack Developer</span>
-                specializing in scalable web apps using
-                <span className="font-semibold text-white"> MERN Stack</span>,
-                cloud technologies, and modern UI systems.
-              </p>
+          {/* ABOUT */}
+          <section id="about">
+            <h2 className="text-2xl font-semibold mb-3">
+              About the Developer
+            </h2>
 
-              <p className="text-sm leading-relaxed text-gray-300 mb-4">
-                I’ve built production-level systems including
-                Real Estate Platforms, AI-powered Chatbots,
-                Blockchain-integrated dashboards, and secure admin panels.
-              </p>
+            <p className="text-gray-300 mb-4">
+              Hi, I’m <span className="text-white font-semibold">Akash Balaji</span>,
+              a Full-Stack Developer specializing in MERN stack,
+              cloud technologies, and blockchain-integrated systems.
+            </p>
 
-              <p className="text-sm leading-relaxed text-gray-300">
-                Currently exploring opportunities in
-                <span className="font-semibold text-white"> Software Engineering</span>,
-                <span className="font-semibold text-white"> Cloud</span>, and
-                <span className="font-semibold text-white"> DevOps</span>.
-              </p>
-
-              {/* CONTACT LINKS */}
-              <div className="mt-8 space-y-3 text-sm">
-                <p>
-                  📧 Email:{" "}
-                  <a
-                    href="mailto:akashbalaji594@gmail.com"
-                    className="underline hover:text-purple-300 transition"
-                  >
-                    akashbalaji594@gmail.com
-                  </a>
-                </p>
-
-                <p>
-                  💼 LinkedIn:{" "}
-                  <a
-                    href="https://www.linkedin.com/in/akash-b-a92b30230/"
-                    target="_blank"
-                    className="underline hover:text-purple-300 transition"
-                  >
-                    linkedin.com/in/akash-balaji
-                  </a>
-                </p>
-
-                <p>
-                  🌐 Portfolio:{" "}
-                  <a
-                    href="https://akashbalaji.vercel.app/"
-                    target="_blank"
-                    className="underline hover:text-purple-300 transition"
-                  >
-                    akashbalaji.vercel.app
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
+            <p className="text-gray-300">
+              I focus on building scalable, secure, and production-ready web
+              applications with clean architecture and strong UI design.
+            </p>
+          </section>
 
         </div>
-
-        {/* FOOTER NOTE */}
-        <div className="text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} SportChain • Built with Next.js & Blockchain Innovation
-        </div>
-
       </div>
     </div>
   );
