@@ -7,14 +7,14 @@
 
 ## 🌐 Live Application
 
-🔗 https://sportchain-umber.vercel.app/
+🔗 https://sportschain.vercel.app/
 
 
 ---
 
 # 📌 Overview
 
-SportChain is a full-stack Web3 sports event management platform that integrates blockchain technology to ensure secure, transparent, and tamper-proof event certification.
+SportsChain is a full-stack Web3 sports event management platform that integrates blockchain technology to ensure secure, transparent, and tamper-proof event certification.
 
 The platform enables:
 
@@ -24,7 +24,7 @@ The platform enables:
 - 🔐 Blockchain-verified organizer identity
 - 📜 IPFS-stored metadata for tamper-proof validation
 
-SportChain combines **Next.js, Node.js, MongoDB, Smart Contracts, and IPFS** into one secure sports ecosystem.
+SportsChain combines **Next.js, Node.js, MongoDB, Smart Contracts, and IPFS** into one secure sports ecosystem.
 
 ---
 
@@ -55,7 +55,7 @@ SportChain combines **Next.js, Node.js, MongoDB, Smart Contracts, and IPFS** int
 
 # 🔐 Security Architecture
 
-SportChain ensures strong security through:
+SportsChain ensures strong security through:
 
 - Clerk Authentication (JWT-based)
 - Role-based API protection
@@ -290,4 +290,4 @@ If you like this project:
 
 ---
 
-> SportChain — Redefining Sports with Blockchain.
+> SportsChain — Redefining Sports with Blockchain.

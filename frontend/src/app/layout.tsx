@@ -43,7 +43,7 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
               {/* LOGO */}
               <h1 className="text-2xl font-extrabold text-blue-600">
-                <Link href="/">SportChain</Link>
+                <Link href="/">SportsChain</Link>
               </h1>
 
               {/* NAV */}
@@ -109,7 +109,7 @@ export default function RootLayout({
 
                 <div>
                   <h4 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                    SportChain
+                    SportsChain
                   </h4>
                   <p className="mt-4 text-zinc-600">
                     Blockchain-powered sports event ecosystem with NFT certification.
@@ -147,7 +147,7 @@ export default function RootLayout({
               </div>
 
               <div className="mt-10 border-t border-white/40 pt-6 text-center text-xs text-zinc-500">
-                © {new Date().getFullYear()} SportChain. All rights reserved.
+                © {new Date().getFullYear()} SportsChain. All rights reserved.
               </div>
             </div>
           </footer>

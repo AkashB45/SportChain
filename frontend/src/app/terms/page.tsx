@@ -44,7 +44,7 @@ export default function TermsPage() {
           <section id="liability">
             <h2 className="text-2xl font-semibold mb-3">Limitation of Liability</h2>
             <p className="text-gray-300">
-              SportChain is not responsible for blockchain network failures,
+              SportsChain is not responsible for blockchain network failures,
               gas fees, or external wallet compromises.
             </p>
           </section>

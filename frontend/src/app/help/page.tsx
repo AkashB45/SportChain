@@ -11,7 +11,7 @@ export default function HelpPage() {
 
   const sections = [
     {
-      title: "What is SportChain?",
+      title: "What is SportsChain?",
       content:
         "SportChain is a blockchain-powered sports event platform that enables secure registrations, NFT certificates, and verified organizers.",
     },

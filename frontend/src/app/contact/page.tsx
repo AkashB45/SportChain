@@ -166,7 +166,7 @@ export default function ContactPage() {
 
         {/* FOOTER NOTE */}
         <div className="text-center text-gray-500 text-sm">
-          © {new Date().getFullYear()} SportChain • Built with Next.js & Blockchain Innovation
+          © {new Date().getFullYear()} SportsChain • Built with Next.js & Blockchain Innovation
         </div>
 
       </div>
