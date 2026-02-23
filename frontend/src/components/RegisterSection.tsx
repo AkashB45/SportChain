@@ -100,9 +100,9 @@ export default function RegisterSection({ event }: any) {
 
   if (isOwner)
     return (
-      <button disabled className="btn-disabled w-full">
-        You own this event
-      </button>
+      <button disabled className="w-full bg-gray-200 text-gray-600 py-3 rounded-xl cursor-not-allowed">
+      ⚠️ You own this event
+    </button>
     );
 
   // 🚫 If user is organizer
@@ -121,9 +121,9 @@ if (userRole === "admin")
 
   if (isClosed)
     return (
-      <button disabled className="btn-disabled w-full">
-        Registration Closed
-      </button>
+      <button disabled className="w-full bg-gray-200 text-gray-600 py-3 rounded-xl cursor-not-allowed">
+      ⚠️ Registration Closed
+    </button>
     );
 
   // 🟥 CANCEL BUTTON
