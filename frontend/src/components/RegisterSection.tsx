@@ -108,10 +108,16 @@ export default function RegisterSection({ event }: any) {
   // 🚫 If user is organizer
   if (userRole === "organizer")
     return (
-      <button disabled className="btn-disabled w-full">
-        You are organizer
-      </button>
+      <button disabled className="w-full bg-gray-200 text-gray-600 py-3 rounded-xl cursor-not-allowed">
+      ⚠️ Organizer accounts cannot register for events
+    </button>
     );
+if (userRole === "admin")
+  return (
+    <button disabled className="w-full bg-gray-200 text-gray-600 py-3 rounded-xl cursor-not-allowed">
+      ⚠️ Admin accounts cannot register for events
+    </button>
+  );
 
   if (isClosed)
     return (
