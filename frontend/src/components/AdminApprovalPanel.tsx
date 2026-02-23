@@ -1,8 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { useAuth } from "@clerk/nextjs";
 export default function AdminApprovalPanel({ currentUser }: any) {
+  const { getToken } = useAuth();
   const [requests, setRequests] = useState<any[]>([]);
   const [admins, setAdmins] = useState<any[]>([]);
   const [search, setSearch] = useState("");
@@ -16,35 +17,55 @@ export default function AdminApprovalPanel({ currentUser }: any) {
 
   const fetchData = async () => {
     try {
+      const token = await getToken();
+
       const [reqRes, adminRes] = await Promise.all([
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/requests`, { credentials: "include" }),
-        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/all-admins`, { credentials: "include" }),
+        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/requests`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }),
+        fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/all-admins`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }),
       ]);
+
+      if (!reqRes.ok || !adminRes.ok) {
+        throw new Error("Failed to fetch admin data");
+      }
 
       setRequests(await reqRes.json());
       setAdmins(await adminRes.json());
     } catch (err) {
-      console.error(err);
+      console.error("ADMIN FETCH ERROR:", err);
     } finally {
       setLoading(false);
     }
   };
 
   const handleAction = async (id: string, action: "approve" | "reject") => {
-    await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/${action}/${id}`, {
-      method: "POST",
-      credentials: "include",
-    });
+    await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/${action}/${id}`,
+      {
+        method: "POST",
+        credentials: "include",
+      },
+    );
     fetchData();
   };
 
   const removeAdmin = async (id: string) => {
     if (!confirm("Are you sure you want to remove admin access?")) return;
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/remove-admin/${id}`, {
-      method: "PATCH",
-      credentials: "include",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin/remove-admin/${id}`,
+      {
+        method: "PATCH",
+        credentials: "include",
+      },
+    );
 
     const data = await res.json();
     if (!res.ok) alert(data.message);
@@ -61,13 +82,12 @@ export default function AdminApprovalPanel({ currentUser }: any) {
     );
 
   const filteredAdmins = admins.filter((a) =>
-    (a.name || a.email).toLowerCase().includes(search.toLowerCase())
+    (a.name || a.email).toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-10 px-4">
       <div className="max-w-5xl mx-auto space-y-10">
-
         {/* HEADER */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <h1 className="text-4xl font-extrabold text-gray-800 tracking-tight">
@@ -97,7 +117,9 @@ export default function AdminApprovalPanel({ currentUser }: any) {
 
         {/* CURRENT ADMINS */}
         <div className="bg-white rounded-2xl shadow-lg p-8">
-          <h2 className="text-2xl font-bold mb-6 text-gray-800">Current Admins</h2>
+          <h2 className="text-2xl font-bold mb-6 text-gray-800">
+            Current Admins
+          </h2>
 
           {filteredAdmins.length === 0 && (
             <p className="text-gray-500">No admins found</p>
@@ -120,7 +142,9 @@ export default function AdminApprovalPanel({ currentUser }: any) {
                       : "bg-red-600 hover:bg-red-700"
                   }`}
                 >
-                  {admin._id === currentUser.id ? "Remove My Access" : "Remove Admin"}
+                  {admin._id === currentUser.id
+                    ? "Remove My Access"
+                    : "Remove Admin"}
                 </button>
               </div>
             ))}
@@ -164,7 +188,6 @@ export default function AdminApprovalPanel({ currentUser }: any) {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
