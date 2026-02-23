@@ -13,7 +13,7 @@ import Script from "next/script";
 import AfterLoginSync from "./(auth)/after-login";
 import DashboardNavLink from "./DashboardNavLink";
 export const metadata: Metadata = {
-  title: "SportChain",
+  title: "SportsChain",
   description: "Secure Sports Event Platform",
 };
 
