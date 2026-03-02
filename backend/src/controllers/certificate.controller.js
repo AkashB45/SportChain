@@ -133,7 +133,7 @@ const generateCertificates = async (req, res) => {
         }
 
         // 9️⃣ Generate PDF (PASS POSITION)
-        const pdfPath = await generatePDF(
+        const pdfBuffer  = await generatePDF(
           reg,
           event,
           organizer,
@@ -145,16 +145,16 @@ const generateCertificates = async (req, res) => {
 
         // 🔟 Send Email
         try {
-          await sendEmail(member.email, pdfPath, metadata,metadataURI);
-          console.log("Email sent to:", member.email);
+          await sendEmail(member.email, pdfBuffer, metadata,metadataURI);
+          // console.log("Email sent to:", member.email);
         } catch (mailError) {
           console.error("Email failed:", mailError.message);
         }
 
-        // Delete PDF
-        if (fs.existsSync(pdfPath)) {
-          fs.unlinkSync(pdfPath);
-        }
+        // // Delete PDF
+        // if (fs.existsSync(pdfPath)) {
+        //   fs.unlinkSync(pdfPath);
+        // }
 
         // Save certificate info
         member.certificate = {

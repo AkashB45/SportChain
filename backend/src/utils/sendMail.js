@@ -1,13 +1,13 @@
 const nodemailer = require("nodemailer");
 
-const sendEmail = async (email, pdfPath, metadata, metadataURI) => {
+const sendEmail = async (email, pdfBuffer, metadata, metadataURI) => {
   try {
     // Extract IPFS hash only
     const ipfsHash = metadataURI.split("/").pop();
 
     // Convert attributes array to object for easy access
     const attributes = {};
-    metadata.attributes.forEach(attr => {
+    metadata.attributes.forEach((attr) => {
       attributes[attr.trait_type] = attr.value;
     });
 
@@ -112,7 +112,7 @@ const sendEmail = async (email, pdfPath, metadata, metadataURI) => {
       attachments: [
         {
           filename: "certificate.pdf",
-          path: pdfPath,
+          content: pdfBuffer,
         },
       ],
     });
